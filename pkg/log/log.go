@@ -11,11 +11,8 @@ var defaultLogger *logrus.Logger
 
 func init() {
 	defaultLogger = logrus.New()
-	defaultLogger.SetFormatter(&logrus.TextFormatter{
-		FullTimestamp:   true,
-		TimestampFormat: "15:04:05",
-		ForceColors:     true,
-		DisableColors:   true,
+	defaultLogger.SetFormatter(&logrus.JSONFormatter{
+		TimestampFormat: "2006-01-02T15:04:05.000Z07:00",
 	})
 	defaultLogger.SetOutput(os.Stdout)
 	defaultLogger.SetLevel(logrus.InfoLevel)
@@ -68,4 +65,13 @@ func Panic(ctx context.Context, msg string, fields ...Field) {
 
 func Debug(ctx context.Context, msg string, fields ...Field) {
 	defaultLogger.WithFields(toLogrusFields(fields)).Debug(msg)
+}
+
+func Init(isLocal bool) {
+	if isLocal {
+		defaultLogger.SetFormatter(&logrus.TextFormatter{
+			FullTimestamp: true,
+			DisableColors: true,
+		})
+	}
 }
