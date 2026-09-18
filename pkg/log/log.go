@@ -11,8 +11,10 @@ var defaultLogger *logrus.Logger
 
 func init() {
 	defaultLogger = logrus.New()
-	defaultLogger.SetFormatter(&logrus.JSONFormatter{
-		TimestampFormat: "2006-01-02T15:04:05.000Z07:00",
+	defaultLogger.SetFormatter(&logrus.TextFormatter{
+		FullTimestamp:   true,
+		TimestampFormat: "15:04:05",
+		ForceColors:     true,
 	})
 	defaultLogger.SetOutput(os.Stdout)
 	defaultLogger.SetLevel(logrus.InfoLevel)
