@@ -14,7 +14,7 @@ func init() {
 	defaultLogger.SetFormatter(&logrus.TextFormatter{
 		FullTimestamp:             true,
 		TimestampFormat:           "15:04:05",
-		DisableColors:             true,
+		ForceColors:               true,
 		EnvironmentOverrideColors: true,
 	})
 	defaultLogger.SetOutput(os.Stdout)
