@@ -24,4 +24,4 @@
 ## 📦 setting-up
 
 ```bash
-go get [github.com/tu-usuario/logger-go@v1.0.0](https://github.com/tu-usuario/logger-go@v1.0.0)
+go get github.com/tu-usuario/logger-go@v1.0.0
