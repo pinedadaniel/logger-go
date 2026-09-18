@@ -12,9 +12,10 @@ var defaultLogger *logrus.Logger
 func init() {
 	defaultLogger = logrus.New()
 	defaultLogger.SetFormatter(&logrus.TextFormatter{
-		FullTimestamp:   true,
-		TimestampFormat: "15:04:05",
-		ForceColors:     true,
+		FullTimestamp:             true,
+		TimestampFormat:           "15:04:05",
+		DisableColors:             true,
+		EnvironmentOverrideColors: true,
 	})
 	defaultLogger.SetOutput(os.Stdout)
 	defaultLogger.SetLevel(logrus.InfoLevel)
